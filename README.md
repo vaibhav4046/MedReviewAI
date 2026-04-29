@@ -124,11 +124,35 @@ Hero → Features → 3-step flow → CTA → Footer all in one shot.
 
 ![Full landing](./docs/screenshots/05-full-landing.png)
 
-### Authenticated screens (sign in on the live URL to see)
-- **Search & Screen** — 13-source picker chips, result cards with source badge + "open original" link
-- **Analyzer** — Upload PDF / URL-DOI / Search PubMed tabs; PICO table, demographics, methodology, outcomes, confidence gauge, grounded source refs
-- **Results Dashboard** — paper count, avg confidence, evidence-quality breakdown, JSON/CSV export
-- **Document Viewer** — split-pane source-vs-extracted-data, resizable, clickable PubMed/DOI links
+### Multi-source literature search (signed-in)
+13 source chips · all free · zero API keys.
+
+![Search multi-source](./docs/screenshots/10-search-multi-source.png)
+
+### Search results — `metformin type 2 diabetes randomized controlled trial`
+PubMed result cards with source badge, "open source ↗" link, abstract preview, Analyze button.
+
+![Search results](./docs/screenshots/11-search-results.png)
+
+### AI analysis — PICO framework
+Real Groq Llama 3.3 70B extraction of a real PubMed RCT. Population, Intervention, Comparison, Outcome each in a coloured card.
+
+![PICO output](./docs/screenshots/13-ai-analysis-pico.png)
+
+### Confidence + Source grounding
+Per-field confidence (Population 90 %, Intervention 90 %), overall gauge, **Source Grounding 100 %** badge — every claim verified verbatim against the source text.
+
+![Confidence + grounding](./docs/screenshots/14-ai-analysis-confidence.png)
+
+### Full analysis page (single shot)
+PICO → Demographics → Methodology → Outcome Measures → Confidence → Source References — all in one capture.
+
+![Full AI analysis](./docs/screenshots/12-ai-analysis-full.png)
+
+### Results dashboard
+History of every saved analysis, stat cards, JSON/CSV export, per-row delete.
+
+![Dashboard](./docs/screenshots/15-dashboard.png)
 
 ---
 
