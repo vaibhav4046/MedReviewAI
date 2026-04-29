@@ -50,3 +50,4 @@ Thumbs.db
 
 # Editor / scratch
 _tmp_*
+.claude/
