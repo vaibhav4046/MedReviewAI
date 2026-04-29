@@ -67,7 +67,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-16 pb-12 sm:pt-20 px-4 sm:px-6">
+      <section id="main-content" className="pt-16 pb-12 sm:pt-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
