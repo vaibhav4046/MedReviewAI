@@ -67,7 +67,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-16 pb-12 sm:pt-20 px-4 sm:px-6">
+      <section id="main-content" className="pt-16 pb-12 sm:pt-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -216,11 +216,13 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="py-8 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <span>© 2026 MedReviewAI. AI-powered medical research analysis.</span>
-          <div className="flex gap-4">
+          <span>© {new Date().getFullYear()} MedReviewAI. AI-powered medical research analysis.</span>
+          <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/about" className="hover:text-foreground transition-colors">About</Link>
             <Link to="/analyzer" className="hover:text-foreground transition-colors">Analyzer</Link>
             <Link to="/search" className="hover:text-foreground transition-colors">Search</Link>
+            <Link to="/about#privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+            <Link to="/about#terms" className="hover:text-foreground transition-colors">Terms</Link>
           </div>
         </div>
       </footer>

@@ -23,4 +23,13 @@ export default tseslint.config(
       "@typescript-eslint/no-unused-vars": "off",
     },
   },
+  {
+    // shadcn/ui generated primitives ship a component + small helper export
+    // (e.g., toaster providers, navigationMenuTriggerStyle). Keeping upstream
+    // shape simplifies future shadcn upgrades.
+    files: ["src/components/ui/**/*.{ts,tsx}"],
+    rules: {
+      "react-refresh/only-export-components": "off",
+    },
+  },
 );
