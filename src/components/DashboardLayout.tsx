@@ -39,10 +39,10 @@ function Sidebar({ collapsed, onToggle }: { collapsed: boolean; onToggle: () => 
         <Link to="/" className="px-5 py-5 border-b border-sidebar-border flex items-center gap-3 hover:bg-muted/20 transition-colors">
           <img src="/favicon.svg" alt="MedReviewAI" className="w-9 h-9 shrink-0" />
           <div>
-            <h1 className="text-sm font-bold text-sidebar-foreground">MedReviewAI</h1>
+            <span className="text-sm font-bold text-sidebar-foreground">MedReviewAI</span>
             <span className="text-[11px] text-muted-foreground">Medical Paper Analysis</span>
           </div>
-          <button onClick={(e) => { e.preventDefault(); onToggle(); }} className="ml-auto lg:hidden text-muted-foreground hover:text-foreground">
+          <button onClick={(e) => { e.preventDefault(); onToggle(); }} aria-label="Close navigation menu" className="ml-auto lg:hidden text-muted-foreground hover:text-foreground p-2 -mr-2 rounded-lg hover:bg-muted/30 transition-colors">
             <X className="w-5 h-5" />
           </button>
         </Link>
@@ -89,7 +89,7 @@ export default function DashboardLayout() {
       <div className="flex-1 lg:ml-64 flex flex-col min-h-screen">
         {/* Header */}
         <header className="sticky top-0 z-30 h-16 border-b border-border bg-background/80 backdrop-blur-xl flex items-center px-4 lg:px-8 gap-4">
-          <button onClick={() => setSidebarCollapsed(false)} className="lg:hidden text-muted-foreground hover:text-foreground">
+          <button onClick={() => setSidebarCollapsed(false)} aria-label="Open navigation menu" className="lg:hidden text-muted-foreground hover:text-foreground p-2 -ml-2 rounded-lg hover:bg-muted/30 transition-colors">
             <Menu className="w-5 h-5" />
           </button>
           <h2 className="text-base font-semibold text-foreground">MedReviewAI</h2>

@@ -209,14 +209,16 @@ export default function ResultsDashboardPage() {
                         <div className="flex items-center gap-2">
                           <Link
                             to={`/viewer/${entry.id}`}
-                            className="p-1.5 rounded-lg hover:bg-muted/30 text-muted-foreground hover:text-primary transition-colors"
+                            aria-label={`View details for ${entry.result.title || "analysis"}`}
+                            className="p-1.5 rounded-lg hover:bg-muted/30 text-muted-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:outline-none transition-colors"
                             title="View details"
                           >
                             <Eye className="w-4 h-4" />
                           </Link>
                           <button
                             onClick={() => handleRemove(entry.id)}
-                            className="p-1.5 rounded-lg hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors"
+                            aria-label={`Delete ${entry.result.title || "analysis"}`}
+                            className="p-1.5 rounded-lg hover:bg-destructive/10 text-muted-foreground hover:text-destructive focus-visible:ring-2 focus-visible:ring-destructive/40 focus-visible:outline-none transition-colors"
                             title="Remove"
                           >
                             <Trash2 className="w-4 h-4" />

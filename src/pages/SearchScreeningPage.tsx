@@ -208,7 +208,9 @@ export default function SearchScreeningPage() {
                   <div className="flex items-center gap-2 shrink-0">
                     <button
                       onClick={() => setExpandedId(expandedId === paper.id ? null : paper.id)}
-                      className="p-2 rounded-lg border border-border hover:bg-muted/30 transition-colors text-muted-foreground hover:text-foreground"
+                      aria-label={expandedId === paper.id ? "Hide abstract" : "Show abstract"}
+                      aria-expanded={expandedId === paper.id}
+                      className="p-2 rounded-lg border border-border hover:bg-muted/30 transition-colors text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:outline-none"
                       title="Toggle abstract"
                     >
                       {expandedId === paper.id ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
