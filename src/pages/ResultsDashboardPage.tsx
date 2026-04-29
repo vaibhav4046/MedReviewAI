@@ -189,8 +189,8 @@ export default function ResultsDashboardPage() {
                       transition={{ delay: i * 0.03 }}
                       className="border-b border-border/50 hover:bg-muted/20 transition-colors"
                     >
-                      <td className="py-3 px-4 max-w-[300px]">
-                        <span className="font-semibold text-foreground truncate block">{entry.result.title}</span>
+                      <td className="py-3 px-4 max-w-[180px] sm:max-w-[300px]">
+                        <span className="font-semibold text-foreground truncate block">{entry.result.title || "Untitled"}</span>
                         <span className="text-xs text-muted-foreground">{entry.result.year}</span>
                       </td>
                       <td className="py-3 px-4">

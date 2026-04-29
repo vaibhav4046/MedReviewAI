@@ -141,6 +141,10 @@
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-feature-settings: "cv11", "ss01";
+    overflow-x: hidden;
+  }
+  html {
+    overflow-x: hidden;
   }
 
   svg.lucide {
