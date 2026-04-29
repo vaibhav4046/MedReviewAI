@@ -401,6 +401,8 @@ This is a college final-year group project. Contributors via GitHub:
 - [Pranjali Shelke](https://github.com/PranjaliShelke)
 - [Yuan Li](https://github.com/yuanlibusiness-beep)
 - [Durgesh](https://github.com/durgesh432003)
+- [Jatin Garad](https://github.com/JatinGarad)
+- [Saood Alenezi](https://github.com/Sgsalene)
 
 ---
 
