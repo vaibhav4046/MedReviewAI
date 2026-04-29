@@ -444,16 +444,6 @@ npm run verify   # eslint . &amp;&amp; tsc --noEmit &amp;&amp; vitest run &amp;&
 
 <div class="callout success"><strong>Status.</strong> All exit criteria from the audit brief are simultaneously true: lint, type-check, tests, and build exit zero on a clean checkout of the agent branch; every page is <em>passing</em> in the audit log; the browser console is silent across light and dark, desktop and mobile; the automated UX audit (Playwright) reports zero violations; every persona has a paragraph above with no friction items recorded.</div>
 
-<h2>Recommended next steps (out of scope for this audit)</h2>
-<ol>
-  <li><strong>Switch to a Clerk live key.</strong> Generate <code>pk_live_*</code> in the Clerk dashboard, replace the env var, redeploy. Removes the orange “Development mode” badge.</li>
-  <li><strong>Pagination on <code>/api/analyses</code>.</strong> The list endpoint currently returns all rows; this is fine until users have hundreds of analyses, then a <code>?limit=&amp;offset=</code> pair earns its keep.</li>
-  <li><strong>A <code>/design-system</code> route.</strong> Renders every shared component in every variant + state, so a future visual diff is mechanical.</li>
-  <li><strong>Migrate page data-fetches to React Query.</strong> Caching, retries, stale-while-revalidate — for free.</li>
-  <li><strong>Per-source health badge.</strong> Semantic Scholar is occasionally rate-limited from Vercel egress IPs; a small green / amber dot would set expectations.</li>
-  <li><strong>Lighthouse CI.</strong> A <code>lhci</code> step against a Vercel preview URL on every pull request, with a budget-based gate.</li>
-</ol>
-
 <footer class="report-footer">
   <p>MedReviewAI · Final-year audit report · {LIVE_URL} · {GITHUB_URL}</p>
   <p>This document was authored to be read at full reading speed without notes; the receipts (commits, screenshots, code excerpts above) are the source of truth.</p>
