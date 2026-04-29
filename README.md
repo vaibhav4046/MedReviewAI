@@ -99,37 +99,32 @@ sequenceDiagram
 
 > Live demo: **https://medai-deploy.vercel.app**
 
-### 1 · Hero
-Animated gradient title, "AI-Powered Medical Research Analysis" pill, sleek navigation with theme toggle, "Upload a Paper" + "Search PubMed" CTAs.
+### Hero
+Animated `Medical Papers` gradient title, AI-Powered pill, theme toggle, dual primary CTAs (Upload a Paper / Search PubMed).
 
 ![Hero](./docs/screenshots/01-hero.png)
 
-### 2 · Features
-Three primary capabilities: PDF Analysis, PubMed Search, AI Extraction — refined cards with gradient icon badges and hover lift.
+### Features
+Three core capabilities: PDF Analysis · PubMed Search · AI Extraction — refined glass cards with gradient icon badges.
 
 ![Features](./docs/screenshots/02-features.png)
 
-### 3 · How it works — three simple steps
-Animated dashed-line connector between cards: Input → AI Analysis → Results.
+### Three Simple Steps
+Input → AI Analysis → Results, connected by an animated dashed flow line.
 
 ![Three Simple Steps](./docs/screenshots/03-three-steps.png)
 
-### 4 · "Ready to Analyze?" CTA
-Final conversion section with shield-check icon badge.
+### CTA + Footer
+"Ready to Analyze?" conversion card with shield badge + clean footer with quick links.
 
-![CTA](./docs/screenshots/04-cta.png)
+![CTA](./docs/screenshots/04-cta-footer.png)
 
-### 5 · Full landing page (single shot)
-Hero → Features → 3-step flow → CTA → Footer in one image.
+### Full landing (single image)
+Hero → Features → 3-step flow → CTA → Footer all in one shot.
 
 ![Full landing](./docs/screenshots/05-full-landing.png)
 
-### 6 · Clerk auth modal
-All protected routes (`/analyzer`, `/search`, `/dashboard`, `/viewer`) bounce to a dark-themed Clerk modal that auto-syncs with site theme.
-
-![Clerk modal](./docs/screenshots/06-clerk-modal.png)
-
-### Authenticated screens (sign in on the live URL to view)
+### Authenticated screens (sign in on the live URL to see)
 - **Search & Screen** — 13-source picker chips, result cards with source badge + "open original" link
 - **Analyzer** — Upload PDF / URL-DOI / Search PubMed tabs; PICO table, demographics, methodology, outcomes, confidence gauge, grounded source refs
 - **Results Dashboard** — paper count, avg confidence, evidence-quality breakdown, JSON/CSV export
