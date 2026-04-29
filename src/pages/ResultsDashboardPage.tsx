@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { useAuth } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -25,7 +25,7 @@ export default function ResultsDashboardPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const fetchEntries = async () => {
+  const fetchEntries = useCallback(async () => {
     if (!userId) return;
     try {
       const data = await api.getAnalyses(userId);
@@ -36,11 +36,11 @@ export default function ResultsDashboardPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [userId]);
 
   useEffect(() => {
     if (userId) fetchEntries();
-  }, [userId]);
+  }, [userId, fetchEntries]);
 
   const stats = useMemo(() => {
     const total = entries.length;
