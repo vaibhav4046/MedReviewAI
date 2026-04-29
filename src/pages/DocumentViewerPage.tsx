@@ -3,7 +3,7 @@ import { useAuth } from "@clerk/clerk-react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { api, type HistoryEntry } from "@/lib/api";
-import { ArrowLeft, FileText, Loader2 } from "lucide-react";
+import { ArrowLeft, FileText, Loader2, BarChart3 } from "lucide-react";
 import PicoTable from "@/components/PicoTable";
 import ConfidenceGauge from "@/components/ConfidenceGauge";
 import SourceReferences from "@/components/SourceReferences";
@@ -43,7 +43,7 @@ export default function DocumentViewerPage() {
   if (!analysisId) {
     return (
       <div className="text-center py-20">
-        <div className="text-4xl mb-3">📄</div>
+        <FileText className="w-12 h-12 text-muted-foreground/40 mx-auto mb-4" strokeWidth={1.5} aria-hidden="true" />
         <div className="text-sm font-semibold text-foreground mb-1">No document selected</div>
         <div className="text-xs text-muted-foreground mb-4">
           Analyze a paper first, then view it here.
@@ -138,7 +138,7 @@ export default function DocumentViewerPage() {
           <div className="h-full flex flex-col">
             <div className="px-4 py-3 border-b border-border bg-muted/20">
               <h2 className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                📊 Extracted Data
+<BarChart3 className="w-3.5 h-3.5" aria-hidden="true" /> Extracted Data
               </h2>
             </div>
             <div className="flex-1 overflow-y-auto p-4 space-y-5">

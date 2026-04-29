@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "@clerk/clerk-react";
 import { motion } from "framer-motion";
-import { Search, Loader2, Sparkles, ArrowUpDown, Filter, ChevronDown, ChevronUp } from "lucide-react";
+import { Search, Loader2, Sparkles, ArrowUpDown, Filter, ChevronDown, ChevronUp, ClipboardList, BarChart3 } from "lucide-react";
 import { api, type Paper, type AnalysisResult, type SearchSource, SEARCH_SOURCES } from "@/lib/api";
 import PicoTable from "@/components/PicoTable";
 import ConfidenceGauge from "@/components/ConfidenceGauge";
@@ -24,22 +24,28 @@ export default function SearchScreeningPage() {
   const [viewingResult, setViewingResult] = useState<string | null>(null);
   const [source, setSource] = useState<SearchSource>("pubmed");
 
-  const doSearch = async () => {
+  const doSearch = async (sourceOverride?: SearchSource) => {
     if (!query.trim()) return;
+    const activeSource = sourceOverride ?? source;
     setLoading(true);
     setError("");
     setPapers([]);
     setAnalysisResults({});
     setViewingResult(null);
     try {
-      const data = await api.searchPubMed(query.trim(), source);
+      const data = await api.searchPubMed(query.trim(), activeSource);
       setPapers(data.papers);
-      if (data.papers.length === 0) setError(`No results found in ${SEARCH_SOURCES.find(s => s.id === source)?.label}. Try different keywords or another source.`);
+      if (data.papers.length === 0) setError(`No results found in ${SEARCH_SOURCES.find(s => s.id === activeSource)?.label}. Try different keywords or another source.`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Search failed");
     } finally {
       setLoading(false);
     }
+  };
+
+  const switchSource = (next: SearchSource) => {
+    setSource(next);
+    if (query.trim()) doSearch(next);
   };
 
   const analyzePaper = async (paper: Paper) => {
@@ -89,11 +95,11 @@ export default function SearchScreeningPage() {
           {paper && <p className="text-sm text-muted-foreground mt-1">{paper.authors} • {paper.journal} ({paper.year})</p>}
         </motion.div>
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">📋 PICO Framework</p>
+          <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3 inline-flex items-center gap-1.5"><ClipboardList className="w-3 h-3" aria-hidden="true" /> PICO Framework</p>
           <PicoTable data={res.pico} />
         </div>
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">📊 Extracted Data</p>
+          <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3 inline-flex items-center gap-1.5"><BarChart3 className="w-3 h-3" aria-hidden="true" /> Extracted Data</p>
           <ExtractionCards demographics={res.demographics} methodology={res.methodology} outcomes={res.outcomes} />
         </div>
         <ConfidenceGauge data={res.confidence} />
@@ -105,7 +111,7 @@ export default function SearchScreeningPage() {
   return (
     <div className="space-y-6">
       <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
-        <span className="section-label mb-4">🔍 Search & Screen</span>
+        <span className="section-label mb-4"><Search className="w-3 h-3" aria-hidden="true" /> Search & Screen</span>
         <h1 className="text-2xl font-extrabold text-foreground mt-3 mb-2">Multi-Source Literature Search</h1>
         <p className="text-sm text-muted-foreground">Search across PubMed, Europe PMC, Semantic Scholar, OpenAlex, and preprints — analyze any paper with AI.</p>
       </motion.div>
@@ -115,9 +121,10 @@ export default function SearchScreeningPage() {
         {SEARCH_SOURCES.map((s) => (
           <button
             key={s.id}
-            onClick={() => setSource(s.id)}
+            onClick={() => switchSource(s.id)}
             title={s.description}
-            className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
+            aria-pressed={source === s.id}
+            className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:outline-none ${
               source === s.id
                 ? "bg-primary/15 text-primary border-primary/40 shadow-sm"
                 : "bg-muted/40 text-muted-foreground border-border hover:bg-muted hover:text-foreground"
@@ -143,7 +150,7 @@ export default function SearchScreeningPage() {
             onKeyDown={(e) => e.key === "Enter" && doSearch()}
           />
         </div>
-        <button onClick={doSearch} disabled={!query.trim() || loading} className="btn-glow shrink-0 flex items-center gap-2">
+        <button onClick={() => doSearch()} disabled={!query.trim() || loading} className="btn-glow shrink-0 flex items-center gap-2">
           {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}
           Search
         </button>

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { CheckCircle2, AlertTriangle, AlertOctagon } from "lucide-react";
 import type { Confidence } from "@/lib/api";
 
 function GaugeRing({ value, size = 80, strokeWidth = 7 }: { value: number; size?: number; strokeWidth?: number }) {
@@ -58,13 +59,15 @@ function ScoreBar({ label, value }: { label: string; value: number }) {
 
 function QualityBadge({ quality }: { quality: string }) {
   const styles: Record<string, string> = {
-    High: "bg-emerald-500/15 text-emerald-400 border-emerald-500/20",
-    Moderate: "bg-amber-500/15 text-amber-400 border-amber-500/20",
-    Low: "bg-rose-500/15 text-rose-400 border-rose-500/20",
+    High: "bg-emerald-500/15 text-emerald-500 border-emerald-500/25",
+    Moderate: "bg-amber-500/15 text-amber-500 border-amber-500/25",
+    Low: "bg-rose-500/15 text-rose-500 border-rose-500/25",
   };
+  const Icon = quality === "High" ? CheckCircle2 : quality === "Moderate" ? AlertTriangle : AlertOctagon;
   return (
     <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold border ${styles[quality] || styles.Low}`}>
-      {quality === "High" ? "✅" : quality === "Moderate" ? "⚠️" : "🚨"} {quality} Evidence
+      <Icon className="w-3.5 h-3.5" strokeWidth={2} aria-hidden="true" />
+      {quality} Evidence
     </span>
   );
 }
@@ -84,8 +87,8 @@ export default function ConfidenceGauge({ data }: { data: Confidence }) {
       </div>
 
       {isLowConfidence && (
-        <div className="p-3 rounded-xl border border-rose-500/20 bg-rose-500/10 text-sm text-rose-300 flex items-center gap-2">
-          <span className="text-lg">⚠️</span>
+        <div className="p-3 rounded-xl border border-rose-500/20 bg-rose-500/10 text-sm text-rose-400 dark:text-rose-300 flex items-center gap-2.5">
+          <AlertTriangle className="w-4 h-4 shrink-0" aria-hidden="true" />
           <span>Low confidence — extracted data may be incomplete or unreliable. Verify manually.</span>
         </div>
       )}
