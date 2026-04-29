@@ -2,7 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import { useAuth } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Upload, Link2, Search, FileText, Loader2, X, Sparkles, ArrowRight } from "lucide-react";
+import { Upload, Link2, Search, FileText, Loader2, X, Sparkles, ArrowRight, ClipboardList, BarChart3 } from "lucide-react";
 import { api, type AnalysisResult, type Paper, type SearchSource, SEARCH_SOURCES } from "@/lib/api";
 import PicoTable from "@/components/PicoTable";
 import ConfidenceGauge from "@/components/ConfidenceGauge";
@@ -85,13 +85,14 @@ export default function AnalyzerPage() {
   };
 
   // ─── PubMed search ─────────────────────────────────────
-  const doSearch = async () => {
+  const doSearch = async (sourceOverride?: SearchSource) => {
     if (!searchQuery.trim()) return;
+    const activeSource = sourceOverride ?? searchSource;
     setSearchLoading(true);
     setError("");
     setSearchResults([]);
     try {
-      const data = await api.searchPubMed(searchQuery.trim(), searchSource);
+      const data = await api.searchPubMed(searchQuery.trim(), activeSource);
       setSearchResults(data.papers);
       if (data.papers.length === 0) setError("No results found.");
     } catch (err) {
@@ -99,6 +100,11 @@ export default function AnalyzerPage() {
     } finally {
       setSearchLoading(false);
     }
+  };
+
+  const switchSearchSource = (next: SearchSource) => {
+    setSearchSource(next);
+    if (searchQuery.trim()) doSearch(next);
   };
 
   const analyzeSearchResult = async (paper: Paper) => {
@@ -162,13 +168,13 @@ export default function AnalyzerPage() {
 
         {/* PICO */}
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">📋 PICO Framework</p>
+          <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3 inline-flex items-center gap-1.5"><ClipboardList className="w-3 h-3" aria-hidden="true" /> PICO Framework</p>
           <PicoTable data={result.pico} />
         </div>
 
         {/* Extraction cards */}
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">📊 Extracted Data</p>
+          <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3 inline-flex items-center gap-1.5"><BarChart3 className="w-3 h-3" aria-hidden="true" /> Extracted Data</p>
           <ExtractionCards demographics={result.demographics} methodology={result.methodology} outcomes={result.outcomes} />
         </div>
 
@@ -185,7 +191,7 @@ export default function AnalyzerPage() {
   return (
     <div className="space-y-6 max-w-3xl mx-auto">
       <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
-        <span className="section-label mb-4">📄 Paper Analyzer</span>
+        <span className="section-label mb-4"><FileText className="w-3 h-3" aria-hidden="true" /> Paper Analyzer</span>
         <h1 className="text-2xl font-extrabold text-foreground mt-3 mb-2">Analyze a Medical Paper</h1>
         <p className="text-sm text-muted-foreground">
           Upload a PDF, paste a PubMed URL or DOI, or search by keyword to extract structured data.
@@ -293,9 +299,10 @@ export default function AnalyzerPage() {
                 {SEARCH_SOURCES.map((s) => (
                   <button
                     key={s.id}
-                    onClick={() => setSearchSource(s.id)}
+                    onClick={() => switchSearchSource(s.id)}
                     title={s.description}
-                    className={`px-3 py-1.5 rounded-full text-[11px] font-semibold border transition-all ${
+                    aria-pressed={searchSource === s.id}
+                    className={`px-3 py-1.5 rounded-full text-[11px] font-semibold border transition-all focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:outline-none ${
                       searchSource === s.id
                         ? "bg-primary/15 text-primary border-primary/40"
                         : "bg-muted/40 text-muted-foreground border-border hover:bg-muted hover:text-foreground"
@@ -317,10 +324,10 @@ export default function AnalyzerPage() {
                     placeholder="e.g., pancreatic cancer survival rate"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && doSearch()}
+                    onKeyDown={(e) => { if (e.key === "Enter") doSearch(); }}
                   />
                 </div>
-                <button onClick={doSearch} disabled={!searchQuery.trim() || searchLoading} className="btn-glow shrink-0 flex items-center gap-2">
+                <button onClick={() => doSearch()} disabled={!searchQuery.trim() || searchLoading} className="btn-glow shrink-0 flex items-center gap-2">
                   {searchLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}
                   Search
                 </button>

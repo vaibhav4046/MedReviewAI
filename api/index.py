@@ -151,28 +151,30 @@ class IdQuery(BaseModel):
 
 
 ANALYSIS_PROMPT = """
-You are a careful, evidence-grounded medical research evaluator. Your single goal is faithful extraction from the provided text. Never fabricate. Never infer beyond what is stated.
+You are a careful, evidence-grounded medical research evaluator. Your goal is to extract every PICO and methodology field that the text plausibly supports — EVEN WHEN the wording is implicit, paraphrased, or distributed across multiple sentences. Be useful first, conservative second. Hallucinate never.
 
-STRICT RULES (must follow):
-1. If a field is not directly supported by evidence in the text, return null for that field. Do NOT guess. Do NOT write placeholders like "Not specified" or "N/A".
-2. For EVERY non-null field in pico, demographics, methodology, outcomes, and key_findings, add a source_refs entry that grounds it.
-3. The snippet in each source_refs entry MUST be a verbatim substring of the input text (copy-paste, not paraphrase). Snippets <= 240 chars.
-4. The field name in source_refs MUST be a dotted path: "pico.population", "demographics.sample_size", "methodology.study_design", "outcomes.primary", "outcomes.statistics", "key_findings.0", etc.
-5. Numbers, p-values, CIs, doses must be copied EXACTLY as they appear (preserve units).
-6. study_design must be ONE of: "RCT" | "Cohort" | "Case-Control" | "Cross-sectional" | "Systematic Review" | "Meta-analysis" | "Qualitative" | "Case Report" | "Other". Pick the closest single match.
-7. blinding must be ONE of: "Single-blind" | "Double-blind" | "Triple-blind" | "Open-label" | "Not applicable" | null.
-8. evidence_quality calibration:
-   - "High": RCT or Systematic Review/Meta-analysis with explicit methodology, allocation concealment, and outcome assessor blinding.
-   - "Moderate": Cohort/observational with strong design, large N, or RCT with limitations.
-   - "Low": Case reports, small uncontrolled studies, narrative reviews, missing critical methodology details.
-9. confidence scores per field reflect grounding strength (0.0-1.0):
-   - 0.9-1.0: explicit, unambiguous statement.
-   - 0.7-0.89: clearly implied but not verbatim.
-   - 0.5-0.69: weakly supported.
-   - <0.5: speculative — prefer null over keeping the field.
-10. critical_appraisal must reference specific issues observed (sample size, randomization quality, follow-up rate, conflicts of interest, etc.). Generic strengths/weaknesses are unacceptable.
-11. summary must include the actual numeric primary outcome result if reported.
-12. Return ONLY valid JSON. No prose outside JSON.
+EXTRACTION RULES:
+1. Fill EVERY field for which the text provides any reasonable signal. Use shorter, paraphrased descriptions when the text doesn't state the field verbatim. Only return null when the text genuinely contains zero signal for that field.
+2. For each non-null field in pico, demographics, methodology, outcomes, and key_findings, add a source_refs entry whose snippet is a VERBATIM substring of the input (copy-paste, no paraphrase) that is the single best supporting passage. Snippets ≤ 240 chars.
+3. source_refs.field MUST be a dotted path: "pico.population", "demographics.sample_size", "methodology.study_design", "outcomes.primary", "outcomes.statistics", "key_findings.0", etc.
+4. Numbers, p-values, CIs, doses, percentages — copy EXACTLY as written (preserve units, signs, and parenthetical CIs).
+5. study_design must be ONE of: "RCT" | "Cohort" | "Case-Control" | "Cross-sectional" | "Systematic Review" | "Meta-analysis" | "Qualitative" | "Case Report" | "Clinical Trial" | "Observational" | "Review" | "Other". Pick the closest single match. If text says "phase 3 randomized" → RCT; "register-based" → Cohort; "narrative review" → Review; "registered protocol" → Clinical Trial.
+6. blinding must be ONE of: "Single-blind" | "Double-blind" | "Triple-blind" | "Open-label" | "Not reported" | null.
+7. evidence_quality:
+   - "High": well-designed RCT, SR, or MA with explicit methods.
+   - "Moderate": cohort/observational with strong design, or RCT with limitations.
+   - "Low": case reports, small uncontrolled studies, narrative reviews, registry descriptions.
+8. confidence (0.0-1.0): how well-grounded each field is.
+   - 0.9-1.0: explicit, unambiguous wording in source.
+   - 0.7-0.89: clearly implied; minor paraphrase.
+   - 0.5-0.69: defensible inference from multiple cues.
+   - <0.4: prefer null.
+9. critical_appraisal must cite specific issues from the text (sample size, randomization, follow-up rate, COIs, registration status). No generic platitudes.
+10. summary MUST be 3-4 sentences AND include the actual numeric primary outcome if any number appears in the text.
+11. takeaway_message: one decisive sentence — what should a clinician/researcher do with this?
+12. If the text is a trial-registry entry (e.g., from ClinicalTrials.gov) describing a planned or active study, set study_design = "Clinical Trial", and treat the registry "brief summary" / "outcome measures" as the source of intervention/comparison/outcome — these registries are valid input.
+13. If the text is a preprint, abstract, or full paper, treat sections in order of priority: methods → results → discussion → introduction.
+14. Return ONLY valid JSON. No prose outside JSON.
 
 OUTPUT JSON SCHEMA:
 {
@@ -234,12 +236,13 @@ def analyze_with_groq(text: str):
     try:
         completion = groq_client.chat.completions.create(
             model="llama-3.3-70b-versatile",
-            temperature=0.15,
+            temperature=0.2,
+            max_tokens=4096,
             messages=[
-                {"role": "system", "content": "You are a careful, evidence-grounded medical research evaluator. Respond only in valid JSON. Never fabricate. Use null when evidence is missing."},
-                {"role": "user", "content": ANALYSIS_PROMPT + text[:15000]}
+                {"role": "system", "content": "You are a careful, evidence-grounded medical research evaluator. Be useful: extract every field the text plausibly supports, even if implicit. Respond only in valid JSON. Never fabricate. Use null only when there is genuinely zero signal."},
+                {"role": "user", "content": ANALYSIS_PROMPT + text[:30000]},
             ],
-            response_format={"type": "json_object"}
+            response_format={"type": "json_object"},
         )
         return json.loads(completion.choices[0].message.content)
     except Exception as e:

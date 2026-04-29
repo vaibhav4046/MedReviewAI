@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Brain, Upload, Search, Sparkles, FileText, ShieldCheck, BarChart3, ArrowRight, Cpu, Database, Globe } from "lucide-react";
+import { Brain, Upload, Search, Sparkles, FileText, ShieldCheck, BarChart3, ArrowRight, Cpu, Database, Globe, Info } from "lucide-react";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -52,7 +52,7 @@ export default function AboutPage() {
       </nav>
     <div className="space-y-8 max-w-4xl mx-auto px-4 sm:px-6 py-10">
       <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
-        <span className="section-label mb-4">ℹ️ About</span>
+        <span className="section-label mb-4"><Info className="w-3 h-3" aria-hidden="true" /> About</span>
         <h1 className="text-2xl font-extrabold text-foreground mt-3 mb-2">About MedReviewAI</h1>
         <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
           MedReviewAI is an AI-powered platform for analyzing medical research papers. It automates the extraction
