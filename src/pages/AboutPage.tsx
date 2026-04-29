@@ -134,8 +134,30 @@ export default function AboutPage() {
         </div>
       </motion.div>
 
+      {/* Privacy */}
+      <motion.div id="privacy" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="glass-card p-6 scroll-mt-24">
+        <h2 className="text-base font-bold text-foreground mb-3">Privacy</h2>
+        <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+          <p>MedReviewAI stores only what you submit for analysis: the paper text or PDF you upload, the extracted structured data, and your authenticated user identifier from Clerk. Your data is partitioned per user — only you can see your own analyses.</p>
+          <p>We do not sell your data. We do not train models on your uploads. The analysis itself is performed by Groq (Llama 3.3 70B) which processes your text in-flight and does not retain it. Clerk handles authentication; we never see or store your password.</p>
+          <p>Search queries are forwarded to the academic source you select (PubMed, Europe PMC, etc.) — those services have their own privacy policies. We do not log queries.</p>
+          <p>You can delete any saved analysis at any time from the Results dashboard, or clear all of them with the Clear button. Deletion is immediate and irreversible.</p>
+        </div>
+      </motion.div>
+
+      {/* Terms */}
+      <motion.div id="terms" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45 }} className="glass-card p-6 scroll-mt-24">
+        <h2 className="text-base font-bold text-foreground mb-3">Terms</h2>
+        <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+          <p>MedReviewAI is provided as an educational research tool. Outputs are AI-generated extractions and may contain errors despite source-grounding validation. Verify critical data against the original paper before clinical, academic, or publication use.</p>
+          <p>This service is not a medical device. Do not use it as a substitute for professional medical judgement, peer review, or formal evidence appraisal.</p>
+          <p>By using the service you agree not to upload content you do not have the right to share, not to attempt to reverse-engineer or rate-abuse the service, and not to use outputs in a way that misrepresents authorship.</p>
+          <p>The service is provided as-is, with no warranty. We may change or discontinue it without notice.</p>
+        </div>
+      </motion.div>
+
       {/* CTA */}
-      <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="text-center py-6">
+      <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="text-center py-6">
         <Link to="/analyzer" className="btn-glow inline-flex items-center gap-2 text-base">
           Get Started <ArrowRight className="w-4 h-4" />
         </Link>

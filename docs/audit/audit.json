@@ -69,7 +69,7 @@
     "scrollWidth": 1440,
     "clientWidth": 1440,
     "h1Count": 1,
-    "h2Count": 3,
+    "h2Count": 5,
     "headings": [
       {
         "tag": "H1",
@@ -110,6 +110,14 @@
       {
         "tag": "H2",
         "text": "Technology Stack"
+      },
+      {
+        "tag": "H2",
+        "text": "Privacy"
+      },
+      {
+        "tag": "H2",
+        "text": "Terms"
       }
     ],
     "imagesNoAlt": [],
@@ -145,7 +153,7 @@
     "imagesNoAlt": [],
     "iconButtonsNoLabel": 0,
     "linksTargetBlankNoRel": 0,
-    "formsNoLabels": 1,
+    "formsNoLabels": 0,
     "lang": "en",
     "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
   },
@@ -305,7 +313,7 @@
     "scrollWidth": 390,
     "clientWidth": 390,
     "h1Count": 1,
-    "h2Count": 3,
+    "h2Count": 5,
     "headings": [
       {
         "tag": "H1",
@@ -346,6 +354,14 @@
       {
         "tag": "H2",
         "text": "Technology Stack"
+      },
+      {
+        "tag": "H2",
+        "text": "Privacy"
+      },
+      {
+        "tag": "H2",
+        "text": "Terms"
       }
     ],
     "imagesNoAlt": [],
@@ -379,9 +395,9 @@
       }
     ],
     "imagesNoAlt": [],
-    "iconButtonsNoLabel": 3,
+    "iconButtonsNoLabel": 0,
     "linksTargetBlankNoRel": 0,
-    "formsNoLabels": 1,
+    "formsNoLabels": 0,
     "lang": "en",
     "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
   },

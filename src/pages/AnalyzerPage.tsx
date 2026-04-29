@@ -199,7 +199,9 @@ export default function AnalyzerPage() {
             <button
               key={tab.id}
               onClick={() => { setActiveTab(tab.id); setError(""); }}
-              className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200
+              aria-label={tab.label}
+              aria-pressed={activeTab === tab.id}
+              className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:outline-none
                 ${activeTab === tab.id
                   ? "bg-primary/15 text-primary border border-primary/25"
                   : "text-muted-foreground hover:text-foreground"
