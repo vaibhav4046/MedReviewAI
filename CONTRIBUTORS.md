@@ -8,6 +8,7 @@ MedReviewAI is built by the following team members:
 - [Harmeet Kalda](https://github.com/Harmeetkalda) — PICO extraction, prompt engineering
 - [Hitesh Mahajan](https://github.com/hitesh-m-mahajan-AI-DS) — AI/DS, LLM evaluation, hallucination guardrails
 - [Yuan Li](https://github.com/yuanlibusiness-beep) — QA, testing, documentation
+- [Jatin Garad](https://github.com/JatinGarad) — Backend integration, deployment support
 - [Sgsalene](https://github.com/Sgsalene) — Reviewer, project guidance
 
 ---
