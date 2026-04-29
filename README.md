@@ -7,6 +7,17 @@
 
 ---
 
+### 📄 [Read the full audit report (PDF)](https://github.com/vaibhav4046/MedReviewAI/releases/latest/download/MedReviewAI_Report.pdf)
+
+Comprehensive 30+ page report — UI screenshots, code excerpts, 10-persona testing log, accuracy benchmarks, full architecture. Hosted on the [v1.0.0-audit release](https://github.com/vaibhav4046/MedReviewAI/releases/tag/v1.0.0-audit).
+
+[![Download PDF](https://img.shields.io/badge/Audit_Report-Download_PDF-blue?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://github.com/vaibhav4046/MedReviewAI/releases/latest/download/MedReviewAI_Report.pdf)
+[![Live Demo](https://img.shields.io/badge/Live-medai--deploy.vercel.app-10b981?style=for-the-badge&logo=vercel&logoColor=white)](https://medai-deploy.vercel.app)
+[![13 Sources](https://img.shields.io/badge/Free_Sources-13-8b5cf6?style=for-the-badge)](https://github.com/vaibhav4046/MedReviewAI#multi-source-search)
+[![Tests](https://img.shields.io/badge/Tests-passing-22c55e?style=for-the-badge)](https://github.com/vaibhav4046/MedReviewAI/actions)
+
+---
+
 ## What it does
 
 Upload a medical research paper (PDF / paste / search across 13 academic databases) → AI extracts:
