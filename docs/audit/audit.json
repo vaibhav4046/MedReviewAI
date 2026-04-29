@@ -1,0 +1,508 @@
+{
+  "desktop::landing": {
+    "console_errors": [],
+    "console_warnings": [
+      {
+        "type": "warning",
+        "text": "Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/d"
+      }
+    ],
+    "network_failures": [],
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "h1Count": 1,
+    "h2Count": 2,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Extract Insights from Medical Papers in Seconds"
+      },
+      {
+        "tag": "H3",
+        "text": "PDF Analysis"
+      },
+      {
+        "tag": "H3",
+        "text": "PubMed Search"
+      },
+      {
+        "tag": "H3",
+        "text": "AI Extraction"
+      },
+      {
+        "tag": "H2",
+        "text": "Three Simple Steps"
+      },
+      {
+        "tag": "H3",
+        "text": "Input"
+      },
+      {
+        "tag": "H3",
+        "text": "AI Analysis"
+      },
+      {
+        "tag": "H3",
+        "text": "Results"
+      },
+      {
+        "tag": "H2",
+        "text": "Ready to Analyze?"
+      }
+    ],
+    "imagesNoAlt": [],
+    "iconButtonsNoLabel": 0,
+    "linksTargetBlankNoRel": 0,
+    "formsNoLabels": 0,
+    "lang": "en",
+    "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
+  },
+  "desktop::about": {
+    "console_errors": [],
+    "console_warnings": [
+      {
+        "type": "warning",
+        "text": "Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/d"
+      }
+    ],
+    "network_failures": [],
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "h1Count": 1,
+    "h2Count": 3,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "About MedReviewAI"
+      },
+      {
+        "tag": "H2",
+        "text": "How It Works"
+      },
+      {
+        "tag": "H2",
+        "text": "Features"
+      },
+      {
+        "tag": "H3",
+        "text": "PDF Upload"
+      },
+      {
+        "tag": "H3",
+        "text": "PubMed Search"
+      },
+      {
+        "tag": "H3",
+        "text": "URL / DOI Input"
+      },
+      {
+        "tag": "H3",
+        "text": "PICO Extraction"
+      },
+      {
+        "tag": "H3",
+        "text": "Demographics & Methodology"
+      },
+      {
+        "tag": "H3",
+        "text": "Confidence Scoring"
+      },
+      {
+        "tag": "H2",
+        "text": "Technology Stack"
+      }
+    ],
+    "imagesNoAlt": [],
+    "iconButtonsNoLabel": 0,
+    "linksTargetBlankNoRel": 0,
+    "formsNoLabels": 0,
+    "lang": "en",
+    "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
+  },
+  "desktop::analyzer": {
+    "console_errors": [],
+    "console_warnings": [
+      {
+        "type": "warning",
+        "text": "Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/d"
+      }
+    ],
+    "network_failures": [],
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "h1Count": 2,
+    "h2Count": 1,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "MedReviewAI"
+      },
+      {
+        "tag": "H2",
+        "text": "MedReviewAI"
+      },
+      {
+        "tag": "H1",
+        "text": "Analyze a Medical Paper"
+      }
+    ],
+    "imagesNoAlt": [],
+    "iconButtonsNoLabel": 2,
+    "linksTargetBlankNoRel": 0,
+    "formsNoLabels": 1,
+    "lang": "en",
+    "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
+  },
+  "desktop::search": {
+    "console_errors": [],
+    "console_warnings": [
+      {
+        "type": "warning",
+        "text": "Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/d"
+      }
+    ],
+    "network_failures": [],
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "h1Count": 2,
+    "h2Count": 1,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "MedReviewAI"
+      },
+      {
+        "tag": "H2",
+        "text": "MedReviewAI"
+      },
+      {
+        "tag": "H1",
+        "text": "Multi-Source Literature Search"
+      }
+    ],
+    "imagesNoAlt": [],
+    "iconButtonsNoLabel": 2,
+    "linksTargetBlankNoRel": 0,
+    "formsNoLabels": 0,
+    "lang": "en",
+    "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
+  },
+  "desktop::dashboard": {
+    "console_errors": [],
+    "console_warnings": [
+      {
+        "type": "warning",
+        "text": "Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/d"
+      }
+    ],
+    "network_failures": [],
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "h1Count": 2,
+    "h2Count": 1,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "MedReviewAI"
+      },
+      {
+        "tag": "H2",
+        "text": "MedReviewAI"
+      },
+      {
+        "tag": "H1",
+        "text": "Analysis Results"
+      }
+    ],
+    "imagesNoAlt": [],
+    "iconButtonsNoLabel": 2,
+    "linksTargetBlankNoRel": 0,
+    "formsNoLabels": 0,
+    "lang": "en",
+    "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
+  },
+  "desktop::notfound": {
+    "console_errors": [
+      {
+        "type": "error",
+        "text": "404 Error: User attempted to access non-existent route: /this-route-does-not-exist"
+      }
+    ],
+    "console_warnings": [
+      {
+        "type": "warning",
+        "text": "Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/d"
+      }
+    ],
+    "network_failures": [],
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "h1Count": 1,
+    "h2Count": 0,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "404"
+      }
+    ],
+    "imagesNoAlt": [],
+    "iconButtonsNoLabel": 0,
+    "linksTargetBlankNoRel": 0,
+    "formsNoLabels": 0,
+    "lang": "en",
+    "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
+  },
+  "mobile::landing": {
+    "console_errors": [],
+    "console_warnings": [
+      {
+        "type": "warning",
+        "text": "Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/d"
+      }
+    ],
+    "network_failures": [],
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "h1Count": 1,
+    "h2Count": 2,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Extract Insights from Medical Papers in Seconds"
+      },
+      {
+        "tag": "H3",
+        "text": "PDF Analysis"
+      },
+      {
+        "tag": "H3",
+        "text": "PubMed Search"
+      },
+      {
+        "tag": "H3",
+        "text": "AI Extraction"
+      },
+      {
+        "tag": "H2",
+        "text": "Three Simple Steps"
+      },
+      {
+        "tag": "H3",
+        "text": "Input"
+      },
+      {
+        "tag": "H3",
+        "text": "AI Analysis"
+      },
+      {
+        "tag": "H3",
+        "text": "Results"
+      },
+      {
+        "tag": "H2",
+        "text": "Ready to Analyze?"
+      }
+    ],
+    "imagesNoAlt": [],
+    "iconButtonsNoLabel": 0,
+    "linksTargetBlankNoRel": 0,
+    "formsNoLabels": 0,
+    "lang": "en",
+    "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
+  },
+  "mobile::about": {
+    "console_errors": [],
+    "console_warnings": [
+      {
+        "type": "warning",
+        "text": "Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/d"
+      }
+    ],
+    "network_failures": [],
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "h1Count": 1,
+    "h2Count": 3,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "About MedReviewAI"
+      },
+      {
+        "tag": "H2",
+        "text": "How It Works"
+      },
+      {
+        "tag": "H2",
+        "text": "Features"
+      },
+      {
+        "tag": "H3",
+        "text": "PDF Upload"
+      },
+      {
+        "tag": "H3",
+        "text": "PubMed Search"
+      },
+      {
+        "tag": "H3",
+        "text": "URL / DOI Input"
+      },
+      {
+        "tag": "H3",
+        "text": "PICO Extraction"
+      },
+      {
+        "tag": "H3",
+        "text": "Demographics & Methodology"
+      },
+      {
+        "tag": "H3",
+        "text": "Confidence Scoring"
+      },
+      {
+        "tag": "H2",
+        "text": "Technology Stack"
+      }
+    ],
+    "imagesNoAlt": [],
+    "iconButtonsNoLabel": 0,
+    "linksTargetBlankNoRel": 0,
+    "formsNoLabels": 0,
+    "lang": "en",
+    "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
+  },
+  "mobile::analyzer": {
+    "console_errors": [],
+    "console_warnings": [
+      {
+        "type": "warning",
+        "text": "Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/d"
+      }
+    ],
+    "network_failures": [],
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "h1Count": 2,
+    "h2Count": 1,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "MedReviewAI"
+      },
+      {
+        "tag": "H2",
+        "text": "MedReviewAI"
+      },
+      {
+        "tag": "H1",
+        "text": "Analyze a Medical Paper"
+      }
+    ],
+    "imagesNoAlt": [],
+    "iconButtonsNoLabel": 5,
+    "linksTargetBlankNoRel": 0,
+    "formsNoLabels": 1,
+    "lang": "en",
+    "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
+  },
+  "mobile::search": {
+    "console_errors": [],
+    "console_warnings": [
+      {
+        "type": "warning",
+        "text": "Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/d"
+      }
+    ],
+    "network_failures": [],
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "h1Count": 2,
+    "h2Count": 1,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "MedReviewAI"
+      },
+      {
+        "tag": "H2",
+        "text": "MedReviewAI"
+      },
+      {
+        "tag": "H1",
+        "text": "Multi-Source Literature Search"
+      }
+    ],
+    "imagesNoAlt": [],
+    "iconButtonsNoLabel": 2,
+    "linksTargetBlankNoRel": 0,
+    "formsNoLabels": 0,
+    "lang": "en",
+    "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
+  },
+  "mobile::dashboard": {
+    "console_errors": [],
+    "console_warnings": [
+      {
+        "type": "warning",
+        "text": "Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/d"
+      }
+    ],
+    "network_failures": [],
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "h1Count": 2,
+    "h2Count": 1,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "MedReviewAI"
+      },
+      {
+        "tag": "H2",
+        "text": "MedReviewAI"
+      },
+      {
+        "tag": "H1",
+        "text": "Analysis Results"
+      }
+    ],
+    "imagesNoAlt": [],
+    "iconButtonsNoLabel": 2,
+    "linksTargetBlankNoRel": 0,
+    "formsNoLabels": 0,
+    "lang": "en",
+    "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
+  },
+  "mobile::notfound": {
+    "console_errors": [
+      {
+        "type": "error",
+        "text": "404 Error: User attempted to access non-existent route: /this-route-does-not-exist"
+      }
+    ],
+    "console_warnings": [
+      {
+        "type": "warning",
+        "text": "Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/d"
+      }
+    ],
+    "network_failures": [],
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "h1Count": 1,
+    "h2Count": 0,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "404"
+      }
+    ],
+    "imagesNoAlt": [],
+    "iconButtonsNoLabel": 0,
+    "linksTargetBlankNoRel": 0,
+    "formsNoLabels": 0,
+    "lang": "en",
+    "title": "MedReviewAI | AI-Powered Medical Paper Analysis"
+  }
+}

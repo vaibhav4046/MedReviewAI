@@ -300,7 +300,10 @@ export default function AnalyzerPage() {
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <input
-                    type="text"
+                    id="analyzer-search-query"
+                    name="analyzer-search"
+                    type="search"
+                    aria-label="Search query"
                     className="input-field pl-10"
                     placeholder="e.g., pancreatic cancer survival rate"
                     value={searchQuery}
