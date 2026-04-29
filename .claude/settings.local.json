@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node _tmp_rasterize.mjs)"
+    ]
+  }
+}

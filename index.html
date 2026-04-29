@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedReviewAI | AI-Powered Medical Paper Analysis</title>
+    <meta name="description" content="AI-powered platform for analyzing medical research papers. Extract PICO data, demographics, methodology, outcomes, and confidence scores from PDFs and PubMed." />
+    <meta name="keywords" content="medical paper analysis, PICO extraction, PubMed search, AI research, scoping review, Groq AI, Llama 3" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+
+    <meta property="og:title" content="MedReviewAI — Medical Paper Analysis" />
+    <meta property="og:description" content="AI-powered platform for analyzing medical research papers. Extract PICO data, demographics, methodology, and confidence scores." />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="MedReviewAI" />
+    <meta name="twitter:description" content="AI-powered medical paper analysis platform" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme') || 'dark';
+          if (t === 'dark') document.documentElement.classList.add('dark');
+        } catch (e) { document.documentElement.classList.add('dark'); }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

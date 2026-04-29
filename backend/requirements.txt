@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+psycopg2-binary
+groq
+google-generativeai
+pymupdf
+python-multipart
+python-dotenv
+requests
+pydantic
