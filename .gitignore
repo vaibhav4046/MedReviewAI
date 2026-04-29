@@ -51,4 +51,5 @@ Thumbs.db
 # Editor / scratch
 _tmp_*
 .claude/
-report/
+# Generated report artefact (build script `report/build_report.py` is tracked)
+report/report.html
