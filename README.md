@@ -99,15 +99,37 @@ sequenceDiagram
 
 > Live demo: **https://medai-deploy.vercel.app**
 
-### Hero
-![Hero](./docs/screenshots/02-hero-dark.png)
+### 1 · Hero
+Animated gradient title, "AI-Powered Medical Research Analysis" pill, sleek navigation with theme toggle, "Upload a Paper" + "Search PubMed" CTAs.
 
-### Full landing page
-Hero → Features → 3-step flow with animated connector → "Ready to Analyze?" CTA → Footer.
+![Hero](./docs/screenshots/01-hero.png)
 
-![Full landing](./docs/screenshots/01-landing-full.png)
+### 2 · Features
+Three primary capabilities: PDF Analysis, PubMed Search, AI Extraction — refined cards with gradient icon badges and hover lift.
 
-### Other screens (sign in on the live URL to view)
+![Features](./docs/screenshots/02-features.png)
+
+### 3 · How it works — three simple steps
+Animated dashed-line connector between cards: Input → AI Analysis → Results.
+
+![Three Simple Steps](./docs/screenshots/03-three-steps.png)
+
+### 4 · "Ready to Analyze?" CTA
+Final conversion section with shield-check icon badge.
+
+![CTA](./docs/screenshots/04-cta.png)
+
+### 5 · Full landing page (single shot)
+Hero → Features → 3-step flow → CTA → Footer in one image.
+
+![Full landing](./docs/screenshots/05-full-landing.png)
+
+### 6 · Clerk auth modal
+All protected routes (`/analyzer`, `/search`, `/dashboard`, `/viewer`) bounce to a dark-themed Clerk modal that auto-syncs with site theme.
+
+![Clerk modal](./docs/screenshots/06-clerk-modal.png)
+
+### Authenticated screens (sign in on the live URL to view)
 - **Search & Screen** — 13-source picker chips, result cards with source badge + "open original" link
 - **Analyzer** — Upload PDF / URL-DOI / Search PubMed tabs; PICO table, demographics, methodology, outcomes, confidence gauge, grounded source refs
 - **Results Dashboard** — paper count, avg confidence, evidence-quality breakdown, JSON/CSV export
