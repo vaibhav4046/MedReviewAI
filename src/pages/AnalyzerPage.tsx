@@ -218,11 +218,15 @@ export default function AnalyzerPage() {
           {activeTab === "upload" && (
             <motion.div key="upload" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
               <div
+                role="button"
+                tabIndex={0}
+                aria-label="Upload PDF — drop a file or press Enter to browse"
                 onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
                 onDragLeave={() => setDragOver(false)}
                 onDrop={onDrop}
                 onClick={() => fileRef.current?.click()}
-                className={`drop-zone cursor-pointer ${dragOver ? "drop-zone-active" : ""}`}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fileRef.current?.click(); } }}
+                className={`drop-zone cursor-pointer focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:outline-none ${dragOver ? "drop-zone-active" : ""}`}
               >
                 <input
                   ref={fileRef}
@@ -230,7 +234,8 @@ export default function AnalyzerPage() {
                   name="pdf-upload"
                   type="file"
                   accept=".pdf"
-                  className="hidden"
+                  aria-label="Choose a PDF file"
+                  className="sr-only"
                   onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
                 />
                 <Upload className={`w-10 h-10 mb-3 ${dragOver ? "text-primary" : "text-muted-foreground"}`} />
@@ -242,8 +247,10 @@ export default function AnalyzerPage() {
                 </p>
                 {file && (
                   <button
+                    type="button"
                     onClick={(e) => { e.stopPropagation(); setFile(null); }}
-                    className="mt-2 text-xs text-muted-foreground hover:text-destructive flex items-center gap-1"
+                    aria-label={`Remove ${file.name}`}
+                    className="mt-2 text-xs text-muted-foreground hover:text-destructive focus-visible:ring-2 focus-visible:ring-destructive/40 focus-visible:outline-none rounded inline-flex items-center gap-1"
                   >
                     <X className="w-3 h-3" /> Remove
                   </button>

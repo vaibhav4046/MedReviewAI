@@ -231,11 +231,12 @@ export const exportUtils = {
       "Title", "Year", "Input Type", "Analyzed At",
       "Summary", "Key Findings", "Clinical Significance", "Takeaway",
       "Population", "Intervention", "Comparison", "Outcome",
-      "Sample Size", "Study Design", "Overall Confidence", "Evidence Quality",
+      "Sample Size", "Study Design", "Primary Outcome", "Statistics",
+      "Overall Confidence", "Evidence Quality",
     ];
     const rows = entries.map((e) => [
-      e.result.title,
-      e.result.year,
+      e.result.title || "",
+      e.result.year || "",
       e.inputType,
       e.analyzedAt,
       e.result.summary || "",
@@ -248,6 +249,8 @@ export const exportUtils = {
       e.result.pico?.outcome || "",
       e.result.demographics?.sample_size || "",
       e.result.methodology?.study_design || "",
+      e.result.outcomes?.primary || "",
+      e.result.outcomes?.statistics || "",
       String(e.result.confidence?.overall || 0),
       e.result.confidence?.evidence_quality || "",
     ]);
