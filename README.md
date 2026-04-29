@@ -97,24 +97,17 @@ sequenceDiagram
 
 ## Screenshots
 
-> Live demo carries the latest UI: **https://medai-deploy.vercel.app**
+> Live demo: **https://medai-deploy.vercel.app**
 
-### Landing page
-Animated hero gradient, "AI-Powered Medical Research Analysis" pill, sleek navigation with theme toggle.
+### Hero
+![Hero](./docs/screenshots/02-hero-dark.png)
 
-![Landing page](./docs/screenshots/01-landing.png)
+### Full landing page
+Hero → Features → 3-step flow with animated connector → "Ready to Analyze?" CTA → Footer.
 
-### About page (public)
-Plain-language explanation of what MedReviewAI does, accessible without sign-in.
+![Full landing](./docs/screenshots/01-landing-full.png)
 
-![About page](./docs/screenshots/02-about.png)
-
-### Auth wall — Clerk modal
-All protected routes redirect to a dark-themed Clerk sign-in modal that auto-syncs with the site theme. JWT-protected on every backend call after sign-in.
-
-![Sign-in modal](./docs/screenshots/03-signin-modal.png)
-
-### Other key screens (sign in to view live)
+### Other screens (sign in on the live URL to view)
 - **Search & Screen** — 13-source picker chips, result cards with source badge + "open original" link
 - **Analyzer** — Upload PDF / URL-DOI / Search PubMed tabs; PICO table, demographics, methodology, outcomes, confidence gauge, grounded source refs
 - **Results Dashboard** — paper count, avg confidence, evidence-quality breakdown, JSON/CSV export
