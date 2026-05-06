@@ -11,7 +11,7 @@
 
 ---
 
-### 📄 [Read the full audit report (PDF)](https://github.com/vaibhav4046/MedReviewAI/releases/latest/download/MedReviewAI_Report.pdf)
+### [Read the full audit report (PDF)](https://github.com/vaibhav4046/MedReviewAI/releases/latest/download/MedReviewAI_Report.pdf)
 
 Comprehensive 30+ page report — UI screenshots, code excerpts, 10-persona testing log, accuracy benchmarks, full architecture. Hosted on the [v1.0.0-audit release](https://github.com/vaibhav4046/MedReviewAI/releases/tag/v1.0.0-audit).
 
@@ -220,7 +220,7 @@ Source-picker chips in the UI; each result card shows a source badge and an "ope
 
 - Backend checks each LLM-produced quote against the source text (verbatim or ≥ 60 % word-overlap fallback)
 - Returns a per-paper **grounding score** (% of refs verified)
-- UI shows green ✓ "grounded" or amber ⚠ "unverified" badge per ref
+- UI shows green "grounded" or amber "unverified" badge per ref
 
 ### 4 · Section-aware PDF pipeline
 
