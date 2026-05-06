@@ -1,5 +1,9 @@
 # MedReviewAI
 
+<p align="center">
+  <a href="https://medai-deploy.vercel.app"><img src="docs/screenshots/hero.png" alt="Extract Insights from Medical Papers in Seconds" width="100%" /></a>
+</p>
+
 > AI-powered medical paper analysis. Compress scoping-review work from weeks to seconds.
 
 **Live demo:** https://medai-deploy.vercel.app
